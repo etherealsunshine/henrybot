@@ -1,33 +1,32 @@
+/* Import Tailwind's base, components, and utilities styles */
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
+/* Define color variables for foreground and background colors */
 :root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
-}
+  /* Default light theme colors */
+  --color-foreground: 0, 0, 0; /* Black */
+  --color-background-start: 214, 219, 220; /* Light gray */
+  --color-background-end: 255, 255, 255; /* White */
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
+  /* Dark theme colors */
+  @media (prefers-color-scheme: dark) {
+    --color-foreground: 255, 255, 255; /* White */
+    --color-background-start: 0, 0, 0; /* Black */
+    --color-background-end: 0, 0, 0; /* Black */
   }
 }
 
+/* Apply color variables to body styles */
 body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+  color: rgb(var(--color-foreground)); /* Use foreground color for text */
+  background: linear-gradient(to bottom, transparent, rgb(var(--color-background-end))) rgb(var(--color-background-start)); /* Gradient background */
 }
 
+/* Custom utility class for balanced text wrapping */
 @layer utilities {
-  .text-balance {
-    text-wrap: balance;
+ .text-balance {
+    text-wrap: balance; /* Enable balanced text wrapping */
   }
 }
