@@ -9,9 +9,11 @@ export default function ClientComponent({
   accessToken: string;
 }) {
   return (
-    <VoiceProvider auth={{ type: "accessToken", value: accessToken }}>
+    <VoiceProvider auth={{ type: "accessToken", value: accessToken }}
+    configId={'0bde233b-57c2-4909-b5c4-394fd13b95af'}>
       <Messages />
       <Controls />
     </VoiceProvider>
   );
 }
+
